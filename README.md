@@ -7,28 +7,28 @@ Here's a link to a page with introduction of the language
 https://esolangs.org/wiki/Befunge
 
 The instructions implemented are:
-    0-9 push number onto stack
-    +   pop a, b; push a + b
-    -   pop a, b; push b - a
-    *   pop a, b; push a * b
-    /   pop a, b; push b / a
-    %   pop a, b; push b % a
-    !   pop a   ; push !a
-    `   pop a, b; push b > a
-    >   PC direction right
-    <   PC direction left
-    ^   PC direction up
-    v   PC direction down
-    ?   PC direction random
-    _   pop a; if 0 PC right, otherwise PC left
-    |   pop a; if 0 pc down,  otherwise PC up
-    :   Duplicate top of stack
-    \   Swap top of stack
-    $   pop
-    .   pop and print int
-    ,   pop and print char
-    #   jump over next instruction
-    @   end program
+    * 0-9 push number onto stack
+    * +   pop a, b; push a + b
+    * -   pop a, b; push b - a
+    * *   pop a, b; push a * b
+    * /   pop a, b; push b / a
+    * %   pop a, b; push b % a
+    * !   pop a   ; push !a
+    * `   pop a, b; push b > a
+    * >   PC direction right
+    * <   PC direction left
+    * ^   PC direction up
+    * v   PC direction down
+    * ?   PC direction random
+    * _   pop a; if 0 PC right, otherwise PC left
+    * |   pop a; if 0 pc down,  otherwise PC up
+    * :   Duplicate top of stack
+    * \   Swap top of stack
+    * $   pop
+    * .   pop and print int
+    * ,   pop and print char
+    * #   jump over next instruction
+    * @   end program
        
 In game:
     Press A to open instruction picker, use L and R to turn pages, use A to
