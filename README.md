@@ -6,7 +6,8 @@ The board is limited to 16x8
 Here's a link to a page with introduction of the language
 https://esolangs.org/wiki/Befunge
 
-The instructions implemented are:
+The instructions implemented are
+
     * 0-9 push number onto stack
     * +   pop a, b; push a + b
     * -   pop a, b; push b - a
