@@ -4,3 +4,4 @@ HW10.pdf
 *.o
 *.elf
 *.gba
+images/*.o
