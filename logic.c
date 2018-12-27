@@ -195,6 +195,7 @@ void initializeAppState(AppState* appState) {
     appState->stack.cur = 0;
     appState->pc = RIGHT;
     appState->select_pos = 0;
+    appState->out_pos = 0;
 }
 
 void processAppState(AppState *currentAppState, u32 keysPressedBefore,
@@ -368,6 +369,7 @@ void processAppState(AppState *currentAppState, u32 keysPressedBefore,
             currentAppState->mode &= 0xf0;
             currentAppState->mode |= MODE_EXECUTION_AUTO;
             currentAppState->change = BEGIN_EXECUTION;
+            currentAppState->out_pos = 0;
         }
         if (!KEY_DOWN(BUTTON_R, keysPressedBefore) &&
             KEY_DOWN(BUTTON_R, keysPressedNow)) {

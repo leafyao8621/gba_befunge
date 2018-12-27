@@ -307,7 +307,7 @@ void drawAppState(AppState *state) {
             break;
         // patches the editor cursor and draws the execution cursor
         case ENTER_EXECUTION:
-            drawImageDMA(75, 10, 10, 10, exec_pause);
+            drawImageDMA(75, 5, 10, 10, exec_pause);
             pos = state->board.cur & 0x7f;
             PATCH(pos);
             pos = (state->change & (0x7f << 25)) >> 25;
@@ -339,15 +339,15 @@ void drawAppState(AppState *state) {
             drawRectDMA(50, 10, 6, 8, BLACK);
             drawRectDMA(5, 20, 42, 8, BLACK);
             drawString(5, 20, "Output", WHITE);
-            drawRectDMA(50, 20, 6, 8, BLACK);
+            drawRectDMA(50, 20, 60, 8, BLACK);
             drawRectDMA(50, 30, 60, 8, BLACK);
             break;
         case BEGIN_EXECUTION:
-            drawImageDMA(75, 10, 10, 10, exec_auto);
+            drawImageDMA(75, 5, 10, 10, exec_auto);
             break;
         // cleanups
         case EXIT_EXECUTION:
-            patchBackground(75, 10, 10, 10, bf_bg);
+            patchBackground(75, 5, 10, 10, bf_bg);
             PATCH(0);
             patchBackground(5, 10, 150, 30, bf_bg);
             break;
@@ -358,8 +358,19 @@ void drawAppState(AppState *state) {
             break;
         // does output
         case OUT_CHAR:
-            drawRectDMA(50, 20, 6, 8, BLACK);
-            drawChar(50, 20, state->out, WHITE);
+            if (state->out_pos == 10) {
+                drawRectDMA(50, 20, 60, 8, BLACK);
+                state->out_pos = 0;
+            }
+            switch (state->out) {
+            case 10:
+                state->out_pos = 0;
+                drawRectDMA(50, 20, 60, 8, BLACK);
+                break;
+            default:
+                drawChar(50 + 6 * (state->out_pos++), 20, state->out,
+                         WHITE);
+            }
             pos = (state->change & (0x7f << 25)) >> 25;
             PATCH(pos);
             break;

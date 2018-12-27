@@ -47,7 +47,7 @@ typedef struct {
     int data[100];
 } Stack;
 
-// top 2 bits are direction bits, 3 bits after that are y coordinate bits, 
+// top 2 bits are direction bits, 3 bits after that are y coordinate bits,
 // bottom 4 bits are x coordinate bits
 typedef u16 ProgramCounter; //0bddyyyxxxx
 // top 2 bits are page bits (category), 5 bits after that are y coordinate bits,
@@ -57,11 +57,13 @@ typedef u8 SelectPos; //0bppyyyyyx
 typedef u8 Mode; //0beeeemmmm
 // top 28 bits are data bits, bottom 4 bits are mode bits
 typedef u32 Change; //0b dddd dddd dddd dddd dddd dddd dddd mmmm
+typedef u8 OutPos;
 
 typedef struct {
     Mode mode;
     Change change;
     SelectPos select_pos;
+    OutPos out_pos;
     u8 board_in;
     int out;
     Board board;
@@ -74,7 +76,8 @@ typedef struct {
 void initializeAppState(AppState *appState);
 
 // This function will be used to process app frames.
-void processAppState(AppState *currentAppState, u32 keysPressedBefore, u32 keysPressedNow);
+void processAppState(AppState *currentAppState, u32 keysPressedBefore,
+                     u32 keysPressedNow);
 
 
 #endif
